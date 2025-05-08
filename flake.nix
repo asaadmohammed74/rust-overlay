@@ -29,6 +29,7 @@
       pkgs:
       lib.fix (rust-bin: import ./lib/rust-bin.nix {
         inherit lib pkgs;
+        inherit (pkgs.rust) toRustTarget;
         inherit (rust-bin) nightly;
         manifests = mkManifests distRoot;
       });
